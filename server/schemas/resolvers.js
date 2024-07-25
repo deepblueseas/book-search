@@ -1,13 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
-
-
 // import middleware equivalent
 const { signToken } = require('../utils/auth');
-
-
-
-
 
 const resolvers = {
 
