@@ -1,4 +1,5 @@
 // I very much used the server.js in 17-ins-jwt-review in 22 State
+// also the mini-project from 21 MERN
 
 const express = require('express');
 const { ApolloServer } = require('@apollo/server');

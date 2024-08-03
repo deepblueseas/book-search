@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "start": "npm run build --prefix client && node server.js",
+ "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/seed.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "mongoose": "^8.0.0"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "nodemon": "^2.0.3"
   }
 }
