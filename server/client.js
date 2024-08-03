@@ -18,7 +18,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: from([
     authLink,
-    new HttpLink({ uri: '/graphql' }), // Ensure this URI is correct
+    new HttpLink({ uri: 'http://localhost:3001/graphql' }), 
   ]),
 });
 
