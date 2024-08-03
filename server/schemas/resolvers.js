@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findById(context.user._id).populate('savedBooks');
+        return await User.findById(context.user._id).populate('savedBooks');
       }
       throw new GraphQLError('Authentication required', {
         extensions: {
@@ -15,7 +15,7 @@ const resolvers = {
       });
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('savedBooks');
+      return await User.findOne({ username }).populate('savedBooks');
     },
   },
 
@@ -67,7 +67,7 @@ const resolvers = {
           { $pull: { savedBooks: { bookId } } },
           { new: true }
         ).populate('savedBooks');
-        return updatedUser;
+        return await updatedUser;
       }
       throw new GraphQLError('Authentication required', {
         extensions: {

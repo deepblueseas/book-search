@@ -6,6 +6,8 @@ const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+// had to add this to get around a consistent apollo client error
+const cors = require('cors');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -21,6 +23,7 @@ const server = new ApolloServer({
 const startApolloServer = async () => {
   await server.start();
 
+  app.use(cors());
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 

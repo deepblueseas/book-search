@@ -17,6 +17,16 @@ type Book {
     image: String
     link: String
 }
+    
+input BookInput {
+  bookId: String!
+  authors: [String]
+  description: String
+  title: String!
+  image: String
+  link: String
+}
+
 
 type Auth {
     token: ID!
@@ -36,14 +46,6 @@ type Mutation {
     removeBook(bookId: String!): User
 }
 
-input BookInput {
-    bookId: String!
-    authors: [String]
-    description: String!
-    title: String!
-    image: String
-    link: String
-}
 
 
 `;
